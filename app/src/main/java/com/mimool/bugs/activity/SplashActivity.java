@@ -1,4 +1,4 @@
-package com.mimool.bugs;
+package com.mimool.bugs.activity;
 
 import android.content.Intent;
 import android.os.Bundle;

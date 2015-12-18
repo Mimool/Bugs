@@ -1,24 +1,24 @@
-package com.mimool.bugs;
+package com.mimool.bugs.activity;
 
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class TabbedActivity extends AppCompatActivity {
+import com.mimool.bugs.R;
+
+public class BugListActivity extends AppCompatActivity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -51,15 +51,25 @@ public class TabbedActivity extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        Intent intent = getIntent();
+        int location = intent.getIntExtra("location_id", -1);
+        switch(location) {
+            case -1:
+                Toast.makeText(getApplicationContext(), "잘못된 위치 선택", Toast.LENGTH_SHORT).show();
+                break;
+            case 0:
+                Toast.makeText(getApplicationContext(), "부엌", Toast.LENGTH_SHORT).show();
+                break;
+            case 1:
+                Toast.makeText(getApplicationContext(), "침실", Toast.LENGTH_SHORT).show();
+                break;
+            case 2:
+                Toast.makeText(getApplicationContext(), "화장실", Toast.LENGTH_SHORT).show();
+                break;
+            case 3:
+                Toast.makeText(getApplicationContext(), "하수구", Toast.LENGTH_SHORT).show();
+                break;
+        }
 
     }
 
