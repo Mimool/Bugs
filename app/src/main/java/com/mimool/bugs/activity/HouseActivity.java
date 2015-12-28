@@ -3,6 +3,8 @@ package com.mimool.bugs.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
@@ -13,7 +15,7 @@ import com.mimool.bugs.R;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class HouseActivity extends Activity {
+public class HouseActivity extends AppCompatActivity {
 
     final int imgBtnIdList[] = {
             R.id.imgbtn_kitchen,
